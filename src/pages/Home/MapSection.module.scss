@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+.container {
+    display: flex;
+    width: 100vw;
+    height: 748px;
+    .map-container {
+        border: 1px solid blue;
+        position: relative;
+        // border: 1px solid black;
+        // position: relative;
+        // width: 100vw;
+        // height: 100vh;
+    } 
+    .description  {
+        // position: absolute;
+        max-width: 22%;
+        // top: 236px; 
+        margin: 182px 0 78px 80px;
+        display: flex;
+        flex-direction: column;
+        // // align-items: center;
+        h1{
+            margin-bottom: 16px;
+            font-size: $title-size;
+            line-height: 56px;
+        }
+        p {
+            border: 1px solid brown;
+            font-weight: $bolder-font-weight;
+            margin-bottom: 32px;
+            font-size: $text-size1;
+            list-style: 24px;
+        }
+    }
+    .marker {
+        width: 34px;
+        height: 34px;
+        border: none;
+        border-radius: 50px;
+        background-color: $black-toroto;
+    }
+    
+}

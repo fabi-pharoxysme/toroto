@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.container {
+    background-color: $blue-toroto;
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .socialMediaIcons {
+        display: flex;
+        align-items: center;
+        & img {
+            margin-left: 40px;
+        }
+    }
+
+}

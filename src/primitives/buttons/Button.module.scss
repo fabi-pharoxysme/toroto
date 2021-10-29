@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+
+.btn {
+    padding: 16px 24px;
+    border-radius: 5px;
+    font-weight: $bolder-font-weight;
+    font-size: 14px;
+    &.primary {
+        background-color: $black-toroto;
+        color: $white-toroto;
+        border: none;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &.secondary {
+        color: $black-toroto;
+        border: 1px solid $black-toroto;
+        background-color: $white-toroto;
+    }
+}
