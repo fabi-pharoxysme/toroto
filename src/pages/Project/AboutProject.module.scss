@@ -1,0 +1,68 @@
+@import '../../styles/variables.scss';
+
+.container {
+    color: $gray-1;
+    margin-bottom: 100px;
+    .wrapper {
+        display: flex;
+        margin-bottom: 64px;
+        .description {
+            width: 50%;
+            margin-right: 16px;
+            span {
+                font-size: $subtitle-size2;
+                line-height: $subtitle-size2;
+                margin-bottom: 8px;
+                letter-spacing: 0.18px;
+            }
+            h2 {
+                font-size: $title-size;
+                font-weight: normal;
+                line-height: 56px;
+                margin-bottom: 40px;
+                max-height: 168px;
+                overflow: hidden;
+            }
+            .tags {
+                border: 1px solid magenta;
+                width: 70%;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 30px;
+            }
+            p {
+                width: 95%;
+                color: $gray-2;
+                font-weight: $bolder-font-weight;
+                font-size: $text-size1;
+                line-height: 24px;
+                letter-spacing: 0.15px;            
+            }
+        }
+        .imgContainer {
+            width: 50%; 
+            min-height: 480px;
+            max-width: 512px;
+            .img {
+                width: 100%; 
+                height: 100%;
+                border-radius: 25px;
+            }
+        }
+    }
+    .problemSection {
+        h3 {
+            font-size: $subtitle-size2;
+            line-height: $subtitle-size2;
+            letter-spacing: 0.18px;
+            margin-bottom: 32px;
+        }
+        p {
+            font-weight: normal;
+            font-size: $text-size2;
+            line-height: 24px;
+            letter-spacing: 0.5px;
+        }
+    }
+    
+}

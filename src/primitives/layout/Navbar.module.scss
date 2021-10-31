@@ -2,7 +2,7 @@
 
 .container {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     background-color: $blue-toroto;
     color: $white-toroto;
@@ -11,9 +11,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .logo {
-        max-width: 100%;
-        height: auto;
+    .menuMobile {
+        display: none;
     }
     .links {
         display: flex;
@@ -23,6 +22,9 @@
         margin-right: 40px;
         font-size: $note-size;
         font-weight: $bolder-font-weight;
+        @media (max-width: 900px) {
+            margin-right: 10px;
+        }
         &:last-of-type {
             display: flex;
             align-items: center;
@@ -30,6 +32,9 @@
         & img {
             color: $white-toroto;
             margin-right: 9.5px;
+            @media (max-width: 900px) {
+                margin-right: 5px;
+            }
          }
         & .linkwithIcon{
             display: flex;
@@ -49,6 +54,24 @@
         &:hover {
             background-color: $black-toroto;
             color: $white-toroto;
+        }
+    }
+    @media (max-width:500px) {
+        width: 100%;
+        padding: 0px 8px;
+        display: flex;
+        justify-content: unset;
+        .links {
+            display: none;
+        }
+        .menuMobile {
+            display: block;
+        }
+         .logo {
+            display: flex;
+            width: 85%;
+            justify-content: center;
+            justify-content: center;
         }
     }
 }

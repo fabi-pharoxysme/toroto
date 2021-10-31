@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+
+.container{
+    p {
+        color: $gray-1;
+        margin-bottom: 32px;
+        letter-spacing: 0.18px;
+        font-weight: normal;
+        font-size: $subtitle-size2;
+        line-height: $subtitle-size2;
+    } 
+    .marker {
+        width: 45px;
+        height: 45px;
+        border-radius: 50px;
+        border: 1px solid white ;
+        background-color: #FBC02E;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div {
+            width: 15px;
+            height: 15px;
+            background-color: $white-toroto;
+        }
+    } 
+}

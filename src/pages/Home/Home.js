@@ -1,15 +1,14 @@
 import React from 'react'
-import CardMap from '../../primitives/cards/CardMap'
 import PageFrame from '../../primitives/layout/PageFrame'
 import MapSection from './MapSection'
+import ProjectWrapper from './ProjectWrapper'
 
 const Home = () => {
     return (
         <>
             <PageFrame> 
-                <CardMap/>
-                <MapSection/>
-                
+                <MapSection/> 
+                <ProjectWrapper/>  
             </PageFrame>            
         </>
     )

@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.container {
+    border: 1px solid blue;
+    padding-bottom: 100px;
+    p {
+        margin: 32px 0;
+        color: $gray-1;
+        font-weight: normal;
+        font-size: $subtitle-size2;
+        line-height: $subtitle-size2;
+        letter-spacing: 0.18px;
+    }
+    //falta el grid de las imgenes
+}

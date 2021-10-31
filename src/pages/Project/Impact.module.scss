@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+.container {
+    border: 1px solid blue;
+    h2 {
+        font-size: $title-size;
+        line-height: 56px;
+        margin-bottom: 64px;
+        font-weight: normal;
+    }
+    .cardWrapper {
+        border: 1px solid mediumseagreen;
+    }
+}

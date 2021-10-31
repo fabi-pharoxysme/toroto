@@ -1,31 +1,39 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import classNames from 'classnames'
 import styles from './MapSection.module.scss'
 import Button from "../../primitives/buttons/Button"
 import { Link } from 'react-router-dom'
-import ReactMapGL, { StaticMap ,Popup , Marker} from 'react-map-gl'
+import { StaticMap ,Popup , Marker} from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
+import link  from '../../assets/icons/svg/chevron-down.svg' 
+import CardMap from "../../primitives/cards/CardMap"
  
- 
-// mapboxgl.accessToken = 'pk.eyJ1IjoiZmFiaS1waGFyb3h5c21lIiwiYSI6ImNrdmI2NG1meDBkMmoydW1lM3pkZTFzcjYifQ.3H_gJyNMH4Ft5wXPpNsMXA';
-// var map = new mapboxgl.Map({
-// container: 'YOUR_CONTAINER_ELEMENT_ID',
-// style: 'mapbox://styles/mapbox/streets-v11'
-// });
-
 const MapSection = () => {
+    // const [location, setLocation] = useState([])
+    // const [ project, setProject] = useState([])
+    const [ selectedProject, setSelectedProject ] = useState(false)
     const [ viewport, setViewport ] = useState({
         latitude: 22.5000486,
         longitude: -110.000037,
-        // center: [
-        //     -73.9749,
-        //     40.7736
-        //   ],
         zoom: 4.4
     })
+    const [ project, setProject] = useState([])
+    const [location,setLocation] = useState([])
+    const url = 'https://fieldops-api.toroto.mx/api/projects'
 
-    const [ selectedProject, setSelectedProject ] = useState(false)
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await fetch(`${url}`)
+            const projects = await data.json()
+            setProject(projects.data)
+            setLocation(project.geometry)
+        }
+        fetchData()
+    }, [])
+    // const coordinates = [project.map(i => i.geometry.coordinates.map(item => item))]
+    // console.log(coordinates)
+    console.log(location)
     return (
         <div className = {classNames(styles.container)}>
             <div id = {'map-container'}>
@@ -37,9 +45,8 @@ const MapSection = () => {
                     </p>
                     <Button variant = 'primary'>PROPONER UN PROYECTO</Button>
                 </div>
-                <div>
-                    <Link>Ver lista completa de proyectos <span>^</span></Link>
-                   
+                <div className = {styles.linkContainer}>
+                    <Link className = {styles.link} >Ver lista completa de proyectos <img className = {styles.linkIcon} src = {link}/></Link>   
                 </div>
                 <StaticMap
                 {...viewport}
@@ -61,10 +68,9 @@ const MapSection = () => {
                         </Popup>}}></button>
                     </Marker>
                     {/* {selectedProject ? (
-                        <Popup>
-                            <div>
-                                holi
-                            </div>
+                        <Popup
+                        >
+                            <CardMap/>
                         </Popup>
                     ) : null } */}
                 </StaticMap>

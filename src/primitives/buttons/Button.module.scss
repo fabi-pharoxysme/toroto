@@ -1,10 +1,14 @@
 @import '../../styles/variables.scss';
 
 .btn {
-    padding: 16px 24px;
+    height: 48px;
     border-radius: 5px;
     font-weight: $bolder-font-weight;
     font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &.primary {
         background-color: $black-toroto;
         color: $white-toroto;
@@ -15,7 +19,36 @@
     }
     &.secondary {
         color: $black-toroto;
+        border: none;
+        background: $white-toroto;
+    }
+    &.cardbtn{
+        color: $black-toroto;
         border: 1px solid $black-toroto;
-        background-color: $white-toroto;
+        background: $white-toroto;
+    }
+    
+}
+.tag {
+    font-size: 14px;
+    width: 128px;
+     // height: 40px;
+    height: fit-content;
+    color: $black-toroto;
+    border: 1px solid $black-toroto;
+    background: $white-toroto;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    .icon {
+        margin-right: 0px;
+    }
+    @media (max-width:768px) {
+        font-size: 12px;
+        width: 91px;
+        height: 32px;
     }
 }
