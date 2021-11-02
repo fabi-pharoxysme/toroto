@@ -8,6 +8,11 @@
         font-weight: normal;
         font-size: $subtitle-size2;
         line-height: $subtitle-size2;
+        @media (max-width: 500px) {
+            margin-bottom: 16px;
+            font-size: 14px;
+            line-height: 16px;
+        }
     } 
     .marker {
         width: 45px;

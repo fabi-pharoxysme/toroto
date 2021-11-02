@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+
+.container {
+    display: flex;
+    align-items: center;
+    color: $gray-1;
+    font-weight: normal;
+    margin-top: 100px;
+    .content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h3{
+            font-size: $subtitle-size1;
+            line-height: 36px;
+        }
+        p {
+            font-size: $text-size2;
+            line-height: 24px;
+            letter-spacing: 0.5px;
+            margin: 24px 0 40px 0;
+        }
+    }
+    @media (max-width:500px) {
+        margin-top: 48px;
+        .content {
+            h3 {
+            font-size: 16px;
+            line-height: 20px;
+            }
+            p {
+                font-size: 14px;
+                line-height: 16px;
+                margin: 16px 0 24px 0 ;
+            }
+        }
+    }
+}

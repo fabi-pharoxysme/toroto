@@ -48,6 +48,7 @@
                 height: 100%;
                 border-radius: 25px;
             }
+            
         }
     }
     .problemSection {
@@ -62,6 +63,58 @@
             font-size: $text-size2;
             line-height: 24px;
             letter-spacing: 0.5px;
+        }
+    }
+    @media (max-width:500px) {
+        margin-bottom: 48px;
+        .wrapper {
+            flex-direction: column-reverse;
+            margin-bottom: 24px;
+        .description {
+            width: 100%;
+            padding-top: 40px;
+            span {
+                font-size: $note-size;
+                line-height: 16px;
+                margin-bottom: 8px;
+            }
+            h2 {
+                font-size: 24px;
+                line-height: 28px;
+                margin-bottom: 28px;
+                max-height: 84px;
+                overflow: hidden;
+            }
+            .tags {
+                border: 1px solid magenta;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 28px;
+            }
+            p {
+                width: 100%;
+                font-size: 12px;
+                line-height: 14px;         
+            }          
+        }
+        .imgContainer {
+            width: 100%;
+            padding: 0;
+            min-height: 200px;
+        }
+        }
+        .problemSection {
+            h3 {
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 16px;
+                margin-bottom: 16px;
+            }
+            p {
+                font-size: 14px;
+                line-height: 16px;
+            }
         }
     }
     

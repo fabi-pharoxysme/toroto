@@ -6,37 +6,63 @@ import { Link } from 'react-router-dom'
 import { StaticMap ,Popup , Marker} from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import link  from '../../assets/icons/svg/chevron-down.svg' 
+import imgMobile  from '../../assets/img/header_img_mobile.png' 
 import CardMap from "../../primitives/cards/CardMap"
+import PorjectWrapper from "./ProjectWrapper"
  
 const MapSection = () => {
     // const [location, setLocation] = useState([])
-    // const [ project, setProject] = useState([])
+    const [ project, setProject] = useState([])
     const [ selectedProject, setSelectedProject ] = useState(false)
     const [ viewport, setViewport ] = useState({
         latitude: 22.5000486,
         longitude: -110.000037,
-        zoom: 4.4
+        zoom: 4.5
     })
-    const [ project, setProject] = useState([])
-    const [location,setLocation] = useState([])
+    
     const url = 'https://fieldops-api.toroto.mx/api/projects'
-
 
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetch(`${url}`)
             const projects = await data.json()
             setProject(projects.data)
-            setLocation(project.geometry)
         }
         fetchData()
-    }, [])
-    // const coordinates = [project.map(i => i.geometry.coordinates.map(item => item))]
-    // console.log(coordinates)
-    console.log(location)
+    }, [url])
+    
+    // console.log('project',project.flatMap(i=>i)) 
+    let coordinates = []
+    const validation = (param, id)  => {
+        switch (param) {
+            case "P001":
+                return <Marker key = {id}
+                longitude = {-92.31740713119507}
+                latitude = {15.188183227403146}>
+                    <button className = {styles.marker} onMouseEnter = {() => setSelectedProject(project)}></button></Marker>
+            case "P002": 
+                return <Marker key = {id}
+                longitude = { -90}
+                latitude = {17.81930071664984}>
+                    <button className = {styles.marker} onMouseEnter = {() => setSelectedProject(project)}></button></Marker>
+            case "P003": 
+            return <Marker key = {id}
+            longitude = {-91.44401550292969}
+            latitude = {17.258203517630033}>
+                <button className = {styles.marker} onMouseEnter= {() => setSelectedProject(project)}></button></Marker>
+            case "P004": 
+            return <Marker key = {id}
+            longitude = { -99.17017221450806}
+            latitude = {19.422340858428164}>
+                <button className = {styles.marker} onMouseEnter= {() => setSelectedProject(project)}></button></Marker>
+        
+        }
+    }
     return (
         <div className = {classNames(styles.container)}>
-            <div id = {'map-container'}>
+                <div className = {styles.imgMobile}>
+                    <img src = {imgMobile} alt = ""/>
+                </div>
                 <div className = {classNames(styles.description)}>
                     <h1>Somos desarrolladores de proyectos</h1>
                     <p>Lorem Ipsum is simply dummy text of the printing and 
@@ -46,8 +72,9 @@ const MapSection = () => {
                     <Button variant = 'primary'>PROPONER UN PROYECTO</Button>
                 </div>
                 <div className = {styles.linkContainer}>
-                    <Link className = {styles.link} >Ver lista completa de proyectos <img className = {styles.linkIcon} src = {link}/></Link>   
+                    <Link className = {styles.link}  to = {'/'}>Ver lista completa de proyectos <img className = {styles.linkIcon} src = {link}/></Link>   
                 </div>
+                <div className = {styles.mapContainer}>
                 <StaticMap
                 {...viewport}
                 mapboxApiAccessToken = {'pk.eyJ1IjoiZmFiaS1waGFyb3h5c21lIiwiYSI6ImNrdmI4YmZkajJxdnkybnA2dG90cjN6YXEifQ.oqsFMoDorOWL8bmQFeb1fg'}
@@ -55,26 +82,19 @@ const MapSection = () => {
                 height = "748px"
                 mapStyle = 'mapbox://styles/mapbox/streets-v11'
                 >
-                    <Marker
-                        latitude= {22.5000486}
-                        longitude= {-110.000037}
-                        capturePointerMove = {true}>
-                        <button className = {styles.marker} onMouseEnter = {(e) => {<Popup>
-                            <div>
-                                <div>
-                                    
-                                </div>
-                            </div>
-                        </Popup>}}></button>
-                    </Marker>
-                    {/* {selectedProject ? (
-                        <Popup
-                        >
-                            <CardMap/>
+                    {project.map(i => validation(i.id))}
+                    {selectedProject ? (
+                        <Popup 
+                        key = {`popup-${project.id}`} longitude = {-92.31740713119507} latitude = {15.188183227403146} 
+                        closeButton = {false}
+                        className = {styles.popUp}                        
+                        onClose = {()=> {setSelectedProject(null)}}>
+                            <CardMap />
+                            {/* {selectedProject.map(item => <CardMap {...item}/>)} */}
                         </Popup>
-                    ) : null } */}
+                    ) : null }
                 </StaticMap>
-            </div>
+                </div>
         </div>
     )
 }

@@ -8,13 +8,13 @@ import project4 from '../../assets/img/img_project_4.png'
 const validation = (key) => {
     switch(key) {
         case  "P001":
-            return <img className = {styles.imgContainer} alt = "img-project" key= {key} src = {project1}/>
+            return <img className = {styles.imgContainer} alt = "project" key= {key} src = {project1}/>
         case "P002":
-             return <img className = {styles.imgContainer} alt = "img-project" key= {key} src = {project2}/>
+             return <img className = {styles.imgContainer} alt = "project" key= {key} src = {project2}/>
         case "P003":
-             return <img className = {styles.imgContainer} alt = "img-project" key= {key} src = {project3}/>
+             return <img className = {styles.imgContainer} alt = "project" key= {key} src = {project3}/>
         case "P004":
-            return <img className = {styles.imgContainer}  alt = "img-project" key= {key} src = {project4}/>
+            return <img className = {styles.imgContainer}  alt = "project" key= {key} src = {project4}/>
             default:;
     }
   }

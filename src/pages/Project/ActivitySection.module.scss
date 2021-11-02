@@ -1,8 +1,8 @@
 @import '../../styles/variables.scss';
 
 .container {
-    // border: 1px solid maroon;
     color: $gray-1;
+    margin-bottom: 70px;
     .modalSection {
         display: flex;
         align-items: center;
@@ -25,6 +25,38 @@
             font-weight: normal;
             letter-spacing: 0.18px;
             margin-bottom: 32px;
+        }
+        .collapse {
+            width: 100%;
+            .panel {
+                border-bottom: 1px solid $gray-2;
+                border-top: 1px solid $gray-2;
+            }
+        }
+        //falta stulos de los paneles
+    }
+    @media (max-width:500px) {
+        margin-bottom: 40px;
+        .modalSection {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            h2 {
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 28px;
+                margin-right: 16px;
+            }
+            img {
+                width: 20px;
+            }
+        }
+        .activitySection {
+            h2 {
+                font-size: 14px;
+                line-height: 16px;
+                margin-bottom: 16px;
+            }
         }
     }
 }

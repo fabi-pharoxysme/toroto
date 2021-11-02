@@ -6,6 +6,7 @@ import project1 from '../../assets/img/img_project_1.png'
 import project2 from '../../assets/img/img_project_2.png'
 import project3 from '../../assets/img/img_project_3.png'
 import project4 from '../../assets/img/img_project_4.png'
+import { Link } from "react-router-dom"
 
 const validation = (key) => {
     switch(key) {
@@ -41,7 +42,7 @@ const ProjectCard = ({location, name, description, services, id,children }) => {
                         <Button variant= 'tag'>{services}</Button>
                     </div>
                     <div className = {styles.lastBtn}>
-                        <Button variant= 'card-btn'>ver proyecto completo</Button>
+                        <Link className = {styles.link} to = {`/detalle/${id}`}><Button variant= 'card-btn'>ver proyecto completo</Button></Link>
                     </div>
                 </div>
             </div>

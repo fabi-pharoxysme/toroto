@@ -7,7 +7,10 @@ const Impact = () => {
         <div className = {styles.container}>
             <h2>Impacto</h2>
             <div className = {styles.cardWrapper}>
-                <GraphicCard/>
+            <GraphicCard/>
+            <GraphicCard/>
+            <GraphicCard/>
+            <GraphicCard/>
             </div>
         </div>
     )

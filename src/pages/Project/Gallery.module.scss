@@ -1,8 +1,7 @@
 @import '../../styles/variables.scss';
 
 .container {
-    border: 1px solid blue;
-    padding-bottom: 100px;
+    margin-bottom: 100px;
     p {
         margin: 32px 0;
         color: $gray-1;
@@ -12,4 +11,18 @@
         letter-spacing: 0.18px;
     }
     //falta el grid de las imgenes
+    .imgWrapper {
+        border: 1px solid mediumvioletred;
+        display: grid;
+        grid-row: 1fr 1fr 1fr 1fr;
+        // grid-row: 1fr 1fr;
+    }
+    @media (max-width:500px) {
+        margin-bottom: 48px;
+        p {
+            margin: 16px 0;
+            font-size: 14px;
+            line-height: 16px;
+        }   
+    }
 }
