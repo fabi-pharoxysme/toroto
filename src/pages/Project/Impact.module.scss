@@ -8,8 +8,8 @@
         font-weight: normal;
     }
     .cardWrapper {
-        border: 1px solid mediumseagreen;
         display: flex;
+        gap: 1px;
         justify-content: space-between;
     }
     @media (max-width:500px) {
@@ -18,14 +18,10 @@
             line-height: 16px;
             margin-bottom: 16px;
         }
-
-        //adjust card wrapper mobile
         .cardWrapper {
-            border: 1px solid mediumvioletred;
-            flex-direction: column;
-            width: 100%;
-            grid-column: 50% 50%;
-            grid-row: 50% 50%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
     }
 }

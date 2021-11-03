@@ -32,8 +32,8 @@
 }
 .tag {
     font-size: 14px;
-    width: 128px;
-     // height: 40px;
+    width: fit-content;
+    padding: 9px;
     height: fit-content;
     color: $black-toroto;
     border: 1px solid $black-toroto;
@@ -46,10 +46,13 @@
     overflow: hidden;
     .icon {
         margin-right: 0px;
+        @media (max-width:500px) {
+        width: 20px;
+        }
     }
     @media (max-width:768px) {
         font-size: 12px;
-        width: 91px;
-        height: 32px;
+        flex-wrap: unset;
     }
+    
 }

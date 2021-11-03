@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect,useContext } from "react"
 import classNames from 'classnames'
 import styles from './MapSection.module.scss'
 import Button from "../../primitives/buttons/Button"
@@ -8,18 +8,17 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import link  from '../../assets/icons/svg/chevron-down.svg' 
 import imgMobile  from '../../assets/img/header_img_mobile.png' 
 import CardMap from "../../primitives/cards/CardMap"
-import PorjectWrapper from "./ProjectWrapper"
+import MainContext from "../../context/MainContext"
  
 const MapSection = () => {
-    // const [location, setLocation] = useState([])
+    const {location} = useContext(MainContext)
     const [ project, setProject] = useState([])
     const [ selectedProject, setSelectedProject ] = useState(false)
     const [ viewport, setViewport ] = useState({
         latitude: 22.5000486,
         longitude: -110.000037,
         zoom: 4.5
-    })
-    
+    })    
     const url = 'https://fieldops-api.toroto.mx/api/projects'
 
     useEffect(() => {
@@ -31,8 +30,6 @@ const MapSection = () => {
         fetchData()
     }, [url])
     
-    // console.log('project',project.flatMap(i=>i)) 
-    let coordinates = []
     const validation = (param, id)  => {
         switch (param) {
             case "P001":
@@ -55,7 +52,7 @@ const MapSection = () => {
             longitude = { -99.17017221450806}
             latitude = {19.422340858428164}>
                 <button className = {styles.marker} onMouseEnter= {() => setSelectedProject(project)}></button></Marker>
-        
+            default:;
         }
     }
     return (
@@ -72,7 +69,7 @@ const MapSection = () => {
                     <Button variant = 'primary'>PROPONER UN PROYECTO</Button>
                 </div>
                 <div className = {styles.linkContainer}>
-                    <Link className = {styles.link}  to = {'/'}>Ver lista completa de proyectos <img className = {styles.linkIcon} src = {link}/></Link>   
+                    <Link className = {styles.link}  to = {'/'}>Ver lista completa de proyectos <img className = {styles.linkIcon} src = {link} alt = ''/></Link>   
                 </div>
                 <div className = {styles.mapContainer}>
                 <StaticMap
@@ -90,7 +87,7 @@ const MapSection = () => {
                         className = {styles.popUp}                        
                         onClose = {()=> {setSelectedProject(null)}}>
                             <CardMap />
-                            {/* {selectedProject.map(item => <CardMap {...item}/>)} */}
+                         {selectedProject.map(item => <CardMap {...item}/>)}
                         </Popup>
                     ) : null }
                 </StaticMap>

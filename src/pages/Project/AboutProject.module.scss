@@ -24,8 +24,8 @@
                 overflow: hidden;
             }
             .tags {
-                border: 1px solid magenta;
-                width: 70%;
+                width: 90%;
+                gap: 20px;
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 30px;
@@ -86,9 +86,10 @@
                 overflow: hidden;
             }
             .tags {
-                border: 1px solid magenta;
+                // border: 1px solid magenta;
                 width: 100%;
                 display: flex;
+                gap: 6px;
                 justify-content: space-between;
                 margin-bottom: 28px;
             }

@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useContext } from "react"
 import styles from './MapSection.module.scss'
 import  ReactMapGL ,{ Marker} from 'react-map-gl'
-// import 'mapbox-gl/dist/mapbox-gl.css';
-
+import ProjectContext from "../../context/ProjectContext"
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const MapSection = () => {
+    const {location,latitude,longitude} = useContext(ProjectContext)
     const [viewport, setViewport] = useState({
-        latitude: 18.585740807974794,
-        longitude: -98.07039570007933,
-        zoom: 12 //13
-      });
+        latitude: 16.5000001,
+        longitude: -92.5000001,
+        zoom: 5,
+    });
     return (
         <div className = {styles.container}>
             <p>Mapa de obras</p>
@@ -21,14 +22,17 @@ const MapSection = () => {
                 height = "350px"
                 mapStyle = 'mapbox://styles/mapbox/outdoors-v11'
                 onViewportChange = {nextViewport => setViewport(nextViewport)}>
-                    <Marker
-                        latitude= {18.585740807974794}
-                        longitude= {-98.07039570007933}
-                        capturePointerMove = {true}>
-                        <div className = {styles.marker}>
-                            <div></div>
-                        </div>
-                    </Marker>
+                    {location.map(i=> (
+                        <Marker
+                            latitude= {i[1]}
+                            longitude= {i[0]}
+                            capturePointerMove = {true}>
+                            <div className = {styles.marker}>
+                                <div></div>
+                            </div>
+                        </Marker>
+                    ))}
+                    
                 </ReactMapGL>
             </div>
         </div>

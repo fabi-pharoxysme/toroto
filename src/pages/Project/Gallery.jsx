@@ -1,18 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styles from './Gallery.module.scss'
-import { Image } from 'antd'
+import ProjectContext from '../../context/ProjectContext'
 
 const Gallery = () => {
+    const {dataProject,img} = useContext(ProjectContext)
     return (
         <div className = {styles.container}>
             <p>Galería de imágenes</p>
             <div className = {styles.imgWrapper}>
-            {/* falta el grid de las imgenes */}
-            <p>holi</p>
-            <p>holi</p>
-            <p>holi</p>
-            <p>holi</p>
-            <p>holi</p>
+            {img.map(i=> <img key = {i} className = {styles.img} src= {`${i}`} alt =''/>)}
             </div>
         </div>
     )
